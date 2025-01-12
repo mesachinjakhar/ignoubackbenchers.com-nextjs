@@ -2,20 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* styles/globals.css */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply font-medium tracking-widest;
+  }
+  body {
+    @apply bg-custom-bg;
+  }
+
+  i {
+    @apply mr-2;
+  }
+
+  button {
+    @apply text-base bg-green-800 text-white border-0 rounded-md px-5 py-2.5 cursor-pointer hover:bg-green-700;
+  }
+
+  h1 {
+    @apply font-bold text-4xl mb-10 mt-4;
+  }
+
+  h2 {
+    @apply font-semibold;
+  }
+
+  label {
+    @apply text-[18px];
+  }
+
+  input {
+    @apply mt-[7px] px-[12px] py-[5px] w-full h-[45px] mb-[15px] border-2 border-teal-950 rounded-[4px] text-[16px] box-border bg-white focus:outline-none focus:border-[2.5px] focus:border-green-600;
+  }
+
+  select {
+    @apply mt-[7px] px-[10px] py-[5px] w-full h-[45px] mb-[15px] border-2 border-teal-950 rounded-[4px] text-[16px] box-border bg-white focus:outline-none focus:border-[2.5px] focus:border-green-600;
+  }
+
+  /* More specific style for <a> inside <ul> <li> */
+  ul li a {
+    @apply text-gray-400 hover:text-green-500 text-sm;
+  }
+
+  ul li {
+    @apply mb-2;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.menu-page {
+  padding: 15px 60px;
 }
