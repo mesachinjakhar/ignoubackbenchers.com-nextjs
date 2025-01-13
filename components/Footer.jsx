@@ -23,14 +23,6 @@ const Footer = () => {
               <li>
                 <Link href="/order">IGNOU Books & Guess Papers</Link>
               </li>
-              <li>
-                <Link href="/ignou-counsellor">
-                  Let's Talk with IGNOU Counsellor
-                </Link>
-              </li>
-              <li>
-                <Link href="/ignou-support">IGNOU 24*7 Support</Link>
-              </li>
             </ul>
           </nav>
         </div>
@@ -76,7 +68,7 @@ const Footer = () => {
         </div>
       </div>
       <Link
-        className="mt-[50px] text-[20px] underline hover:cursor-pointer text-green-500"
+        className=" text-[20px] underline hover:cursor-pointer text-green-500"
         href={"/unsubscribe"}
       >
         Unsubscribe here
