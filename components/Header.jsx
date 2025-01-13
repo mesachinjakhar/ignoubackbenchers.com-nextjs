@@ -15,7 +15,7 @@ export const Header = () => {
     <>
       <header className="flex gap-2.5 justify-between px-12 py-4 items-center text-center mb-0 bg-white border-b-2 xs:px-4 fixed top-0 left-0 right-0 z-10">
         {/* Logo Section */}
-        <div className="logo hover:cursor-pointer flex gap-3 text-center items-center">
+        <div className="logo hover:cursor-pointer flex gap-3 text-center items-center xs:gap-1">
           <div className="w-16 md:w-20 lg:w-16">
             <Image
               src="/images/ignou_backbenchers_logo.webp"
