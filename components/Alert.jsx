@@ -1,7 +1,7 @@
 export const Alert = () => {
   return (
     <div
-      className="alert bg-teal-950 text-green-500 px-11 py-1 overflow-hidden relative whitespace-nowrap xs:px-2"
+      className="alert bg-teal-950 text-green-500 px-11 py-1 overflow-hidden relative whitespace-nowrap xs:px-2 hidden"
       role="alert"
       aria-live="polite"
     >

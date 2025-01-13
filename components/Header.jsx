@@ -1,10 +1,19 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 
 export const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu visibility
+
+  function handleMenuClick() {
+    setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
+  }
+
   return (
     <>
-      <header className="flex gap-2.5 justify-between px-12 py-4 item-center text-center mb-0 bg-white border-b-2 xs:px-4">
+      <header className="flex gap-2.5 justify-between px-12 py-4 items-center text-center mb-0 bg-white border-b-2 xs:px-4">
         {/* Logo Section */}
         <div className="logo hover:cursor-pointer flex gap-3 text-center items-center">
           <div className="w-16 md:w-20 lg:w-16">
@@ -54,7 +63,50 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
+
+        {/* Hamburger Menu Icon */}
+        <i
+          onClick={handleMenuClick}
+          className="bi bi-list block text-4xl cursor-pointer xs:block mt-1 text-black"
+        ></i>
       </header>
+
+      {/* Mobile Menu Section */}
+      {isMenuOpen && (
+        <div className="xs:block absolute top-16 left-0 right-0 bg-white shadow-md p-4">
+          <ul className="list-none">
+            <li>
+              <Link
+                href="/my-orders"
+                className="block text-gray-700 hover:text-gray-900 py-2"
+                onClick={handleMenuClick}
+              >
+                MY ORDERS
+              </Link>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/919053442043"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-gray-700 hover:text-gray-900 py-2"
+                onClick={handleMenuClick}
+              >
+                WHATSAPP US
+              </a>
+            </li>
+            <li>
+              <Link
+                href="/login"
+                className="block text-gray-700 hover:text-gray-900 py-2"
+                onClick={handleMenuClick}
+              >
+                LOGIN
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
     </>
   );
 };
