@@ -4,26 +4,28 @@ import Image from "next/image";
 export const Header = () => {
   return (
     <>
-      <header className="flex gap-2.5 justify-between px-12 py-4 item-center text-center mb-0 bg-white border-b-2">
+      <header className="flex gap-2.5 justify-between px-12 py-4 item-center text-center mb-0 bg-white border-b-2 xs:px-4">
         {/* Logo Section */}
         <div className="logo hover:cursor-pointer flex gap-3 text-center items-center">
-          <div className="">
+          <div className="w-16 md:w-20 lg:w-16">
             <Image
               src="/images/ignou_backbenchers_logo.webp"
               alt="IGNOU Backbenchers Logo"
-              width={65}
+              width={0}
               height={0}
+              sizes="100vw"
+              className="w-full h-auto"
             />
           </div>
           <Link href="/" aria-label="Go to IGNOUBACKBENCHERS Home">
-            <h2 className="text-2xl text-center text-black">
+            <h2 className="text-2xl text-center text-black xs:text-xl">
               IgnouBackBenchers
             </h2>
           </Link>
         </div>
 
         {/* Navigation Section */}
-        <nav aria-label="Primary Navigation">
+        <nav aria-label="Primary Navigation" className="xs:hidden">
           <ul className="flex list-none gap-5 items-center m-0 p-0 text-center">
             <li>
               <Link

@@ -12,7 +12,9 @@ export default function Home() {
     <>
       <Alert />
       <QuickActions />
-      <h1 className="text-4xl text-center">Order Handwritten Assignment</h1>
+      <h1 className="text-4xl text-center xs:text-2xl px-2">
+        Order Handwritten Assignment
+      </h1>
       <CreateOrder />
       <Blog />
       <Faq />

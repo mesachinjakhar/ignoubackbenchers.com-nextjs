@@ -25,6 +25,9 @@ const Login = () => {
   }
 
   async function handleSubmit(e) {
+    if (otp.length < 6 || otp.length > 6) {
+      return setMessage("Otp Length Should be 6 digits");
+    }
     e.preventDefault();
     setMessage("");
     if (!email || !otp) {
@@ -60,7 +63,7 @@ const Login = () => {
   }, [response]);
 
   return (
-    <div className="login px-[300px] mt-[7%] mb-[80px]">
+    <div className="login px-[300px] mt-[7%] mb-[80px] xs:px-[30px]">
       <h1>Login/Signup</h1>
       <form className="login-form" onSubmit={(e) => e.preventDefault()}>
         {/* Email Field */}

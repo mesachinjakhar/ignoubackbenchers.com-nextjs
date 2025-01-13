@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="mt-[50px] px-[50px] py-[25px] bg-black text-white">
+    <div className="mt-[50px] px-[50px] py-[25px] bg-black text-white xs:px-[35]">
       <p className="mb-[40px] underline">
         Questions? Call <a href="tel:+919053442043">+91 9053442043</a>
       </p>
-      <div className="flex justify-between mb-3">
-        <div className="footer-menu">
-          <nav>
+      <div className="flex justify-between mb-3 xs:block">
+        <div className="footer-menu xs:mb-8">
+          <nav className="">
             <h3 className="mb-3">Quick Links</h3>
             <ul>
               <li>
@@ -34,7 +34,7 @@ const Footer = () => {
             </ul>
           </nav>
         </div>
-        <div className="footer-menu">
+        <div className="footer-menu  xs:mb-8">
           <nav>
             <h3 className="mb-3">Menu</h3>
             <ul>

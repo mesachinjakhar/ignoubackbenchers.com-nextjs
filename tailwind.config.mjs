@@ -12,6 +12,15 @@ export default {
         foreground: "var(--foreground)",
         "custom-bg": "#fbfbfa",
       },
+      screens: {
+        xs: { max: "420px" },
+      },
+      keyframes: {
+        scrollText: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
   plugins: [],

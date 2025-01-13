@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const MyOrder = ({ orders }) => {
   return (
-    <div className="my-orders-container px-[300px] mx-auto">
+    <div className="my-orders-container px-[300px] mx-auto xs:px-[30px]">
       <h1>My Orders</h1>
       <div className="my-orders border border-gray-300 rounded-[5px] mb-[20px] bg-white">
         <div className="order-status flex items-center justify-between px-[25px] py-2">
@@ -33,11 +33,11 @@ const MyOrder = ({ orders }) => {
           </div>
         </div>
 
-        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px]">
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px] xs:px-[15px]">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Help
           </button>
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Track
           </button>
         </div>
@@ -71,11 +71,11 @@ const MyOrder = ({ orders }) => {
           </div>
         </div>
 
-        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px]">
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px] xs:px-[15px]">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Help
           </button>
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Track
           </button>
         </div>
@@ -110,11 +110,11 @@ const MyOrder = ({ orders }) => {
           </div>
         </div>
 
-        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px]">
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+        <div className="order-footer flex px-[25px] py-[25px] justify-around gap-[10px] xs:px-[15px]">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Help
           </button>
-          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white">
+          <button className="order-footer-btn px-[50px] py-[10px] text-[16px] border border-gray-500 rounded-[5px] text-black bg-white cursor-pointer hover:text-white xs:px-[45] w-[100%]">
             Track
           </button>
         </div>

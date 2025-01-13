@@ -140,8 +140,8 @@ const CreateOrder = () => {
   const handleGoBack = () => setStep(1); // Return to the first step
 
   return (
-    <div className="order p-0 px-[200px] mb-[80px] mt-6">
-      <h2 className="text-4xl text-green-600 text-center">
+    <div className="order p-0 px-[200px] mb-[80px] mt-6 xs:px-[30px]">
+      <h2 className="text-4xl text-green-600 text-center xs:text-2xl">
         From Rs.350/- Each
       </h2>
       {/* Show error message */}
@@ -150,7 +150,7 @@ const CreateOrder = () => {
           {/* <h2 className="text-4xl text-green-600 text-center">
             From Rs.350/- Each
           </h2> */}
-          <form className="order-form mt-10" onSubmit={handleContinue}>
+          <form className="order-form mt-10 xs:mt-7" onSubmit={handleContinue}>
             <label htmlFor="medium">Assignment Medium</label>
             <select id="medium" defaultValue={formData.medium} required>
               <option value="">Select Medium</option>
@@ -204,15 +204,15 @@ const CreateOrder = () => {
         </div>
       ) : (
         <div ref={orderFormRef}>
-          <div className="order-form-title flex justify-between text-center align-center mt-8">
-            <h1 className="text-2xl mb-5">Confirm Address:</h1>
-            <a
-              className="flex justify-end hover:cursor-pointer"
-              onClick={handleGoBack}
-            >
+          <div className="order-form-title flex justify-between items-center mt-8 xs:mt-4">
+            <h1 className="text-2xl text-center xs:text-lg mb-4">
+              Confirm Address:
+            </h1>
+            <a className="text-lg hover:cursor-pointer" onClick={handleGoBack}>
               Go Back
             </a>
           </div>
+
           <div className="order-address">
             <form className="order-form" onSubmit={handlePlaceOrder}>
               <label htmlFor="pages">Type of Pages Required</label>

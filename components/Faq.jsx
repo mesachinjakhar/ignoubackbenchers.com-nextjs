@@ -39,12 +39,12 @@ const Faq = () => {
   ];
 
   return (
-    <section className="px-16">
-      <h1 className="text-2xl mb-8">Frequently Asked Questions</h1>
+    <section className="px-16 xs:px-7">
+      <h1 className="text-2xl mb-8 xs:text-xl">Frequently Asked Questions</h1>
       <div>
         {faq.map((item, index) => (
           <div
-            className={`bg-[#f5deb3] px-[35px] py-[25px] text-black items-center cursor-pointer mb-[20px] ${
+            className={`bg-[#f5deb3] px-[35px] py-[25px] text-black items-center cursor-pointer mb-[20px] xs:px-[20px] xs:py-[20] ${
               activeIndex === index ? "active" : ""
             }`}
             key={index}
@@ -54,7 +54,7 @@ const Faq = () => {
             aria-expanded={activeIndex === index}
           >
             <div className="flex items-center justify-between">
-              <h3 className="w-[100%] text-lg font-bold mb-1">
+              <h3 className="w-[100%] text-lg font-bold mb-1 xs:text-base">
                 {item.question}
               </h3>
               <span>

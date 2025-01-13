@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const QuickActions = () => {
   return (
-    <div className="flex gap-2.5 p-[70px] flex-wrap justify-between">
+    <div className="flex gap-2.5 p-[70px] flex-wrap justify-between xs:p-[45px]">
       {/* Solved Assignments */}
       <Link href="/order" aria-label="Order Solved Assignments">
         <div className="w-[300px] h-[230px] text-center transition-transform duration-300 ease-out hover:scale-105 cursor-pointer">

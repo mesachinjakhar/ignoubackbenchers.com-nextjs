@@ -1,6 +1,6 @@
 const Blog = () => {
   return (
-    <section className="bg-black px-[50px] py-[35px] mb-[60px]">
+    <section className="bg-black px-[50px] py-[35px] mb-[60px] xs:px-[25px]">
       <div>
         <h2 className="text-white text-2xl">Read Our Blogs</h2>
         <div className="flex flex-nowrap justify-between mt-[30px] mb-[30px] gap-[20px] overflow-x-auto pb-[10px]">
