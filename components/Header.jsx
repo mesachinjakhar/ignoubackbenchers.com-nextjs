@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="flex gap-2.5 justify-between px-12 py-4 items-center text-center mb-0 bg-white border-b-2 xs:px-4">
+      <header className="flex gap-2.5 justify-between px-12 py-4 items-center text-center mb-0 bg-white border-b-2 xs:px-4 fixed top-0 left-0 right-0 z-50">
         {/* Logo Section */}
         <div className="logo hover:cursor-pointer flex gap-3 text-center items-center">
           <div className="w-16 md:w-20 lg:w-16">
@@ -67,13 +67,13 @@ export const Header = () => {
         {/* Hamburger Menu Icon */}
         <i
           onClick={handleMenuClick}
-          className="bi bi-list block text-4xl cursor-pointer xs:block mt-1 text-black"
+          className="bi bi-list hidden text-4xl cursor-pointer xs:block mt-1 text-black"
         ></i>
       </header>
 
       {/* Mobile Menu Section */}
       {isMenuOpen && (
-        <div className="xs:block absolute top-16 left-0 right-0 bg-white shadow-md p-4">
+        <div className="xs:block absolute top-20 left-0 right-0 bg-white shadow-md p-4">
           <ul className="list-none">
             <li>
               <Link
@@ -107,6 +107,8 @@ export const Header = () => {
           </ul>
         </div>
       )}
+      {/* Padding for content below fixed header */}
+      <div className="pt-20"></div>
     </>
   );
 };
