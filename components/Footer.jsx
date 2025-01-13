@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="mt-[50px] px-[50px] py-[25px] bg-black text-white xs:px-[35]">
+    <div className="mt-[50px] px-[50px] py-[25px] bg-black text-white xs:px-[25px]">
       <p className="mb-[40px] underline">
         Questions? Call <a href="tel:+919053442043">+91 9053442043</a>
       </p>
