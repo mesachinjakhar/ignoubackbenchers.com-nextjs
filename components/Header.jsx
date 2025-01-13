@@ -7,7 +7,7 @@ export const Header = () => {
       <header className="flex gap-2.5 justify-between px-12 py-4 item-center text-center mb-0 bg-white border-b-2 xs:px-4">
         {/* Logo Section */}
         <div className="logo hover:cursor-pointer flex gap-3 text-center items-center">
-          <div className="w-16 md:w-20 lg:w-">
+          <div className="w-16 md:w-20 lg:w-16">
             <Image
               src="/images/ignou_backbenchers_logo.webp"
               alt="IGNOU Backbenchers Logo"
