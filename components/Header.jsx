@@ -63,12 +63,18 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-
         {/* Hamburger Menu Icon */}
-        <i
-          onClick={handleMenuClick}
-          className="bi bi-list hidden text-4xl cursor-pointer xs:block mt-1 text-black"
-        ></i>
+        {isMenuOpen ? (
+          <i
+            onClick={handleMenuClick}
+            className="bi bi-x hidden text-4xl cursor-pointer xs:block mt-1 text-black"
+          ></i>
+        ) : (
+          <i
+            onClick={handleMenuClick}
+            className="bi bi-list hidden text-4xl cursor-pointer xs:block mt-1 text-black"
+          ></i>
+        )}
       </header>
 
       {/* Mobile Menu Section */}
