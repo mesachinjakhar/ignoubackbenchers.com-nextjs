@@ -123,7 +123,7 @@ const CreateOrder = () => {
     async function creatingOrder() {
       setIsLoading(true);
       const data = await fetch(
-        "https://testingbyignou.azurewebsites.net/api/createOrder?code=R24oFNJuVaeAIszfvydUa2jR7uD7DOpQ3M1vWLF4HQMRAzFuRnafEg%3D%3D"
+        "https://testingbyignou.azurewebsites.net/api/createOrder?code=R24oFNJuVaeAIszfvydUa2jR7uD7DOpQ3M1vWLF4HQMRAzFuRnafEg%3D%3D&name=sachin"
       );
       const jsonData = await data.json();
       if (jsonData.status === "true") {
