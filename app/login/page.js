@@ -103,14 +103,19 @@ const Login = () => {
         </p>
 
         <p>
-          By Continue you agree to our{" "}
+          By continuing, you agree to our{" "}
           <span>
-            <Link href={"/terms-conditions"}>t&c </Link>
+            <Link className="text-green-500" href={"/terms-conditions"}>
+              T&C{" "}
+            </Link>
           </span>
           <span>and </span>
           <span>
-            <Link href={"/privacy-policy"}>privacy policy</Link>
+            <Link className="text-green-500" href={"/privacy-policy"}>
+              Privacy Policy
+            </Link>
           </span>
+          .
         </p>
 
         {/* Submit Button */}
