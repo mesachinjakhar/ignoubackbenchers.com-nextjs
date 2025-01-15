@@ -144,12 +144,8 @@ const CreateOrder = () => {
       <h2 className="text-4xl text-green-600 text-center xs:text-2xl">
         From Rs.350/- Each
       </h2>
-      {/* Show error message */}
       {step === 1 ? (
         <div ref={orderFormRef}>
-          {/* <h2 className="text-4xl text-green-600 text-center">
-            From Rs.350/- Each
-          </h2> */}
           <form className="order-form mt-10 xs:mt-7" onSubmit={handleContinue}>
             <label htmlFor="medium">Assignment Medium</label>
             <select id="medium" defaultValue={formData.medium} required>
