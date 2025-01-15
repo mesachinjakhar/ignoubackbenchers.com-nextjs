@@ -26,9 +26,9 @@ export const Header = () => {
               className="w-full h-auto"
             />
           </div>
-          <Link href="/" aria-label="Go to IGNOUBACKBENCHERS Home">
+          <Link href="/" aria-label="Go to Ignou BackBenchers Home">
             <h2 className="text-2xl text-center text-black xs:text-xl">
-              IgnouBackBenchers
+              Ignou BackBenchers
             </h2>
           </Link>
         </div>
