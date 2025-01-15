@@ -27,7 +27,7 @@ export const Header = () => {
             />
           </div>
           <Link href="/" aria-label="Go to Ignou BackBenchers Home">
-            <h2 className="text-2xl text-center text-black xs:text-xl">
+            <h2 className="text-2xl text-center text-black xs:text-lg">
               Ignou BackBenchers
             </h2>
           </Link>
@@ -67,12 +67,12 @@ export const Header = () => {
         {isMenuOpen ? (
           <i
             onClick={handleMenuClick}
-            className="bi bi-x hidden text-4xl cursor-pointer xs:block mt-1 text-black"
+            className="bi bi-x hidden text-4xl cursor-pointer xs:block text-black"
           ></i>
         ) : (
           <i
             onClick={handleMenuClick}
-            className="bi bi-list hidden text-4xl cursor-pointer xs:block mt-1 text-black"
+            className="bi bi-list hidden text-4xl cursor-pointer xs:block  text-black"
           ></i>
         )}
       </header>
