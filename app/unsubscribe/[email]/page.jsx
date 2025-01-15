@@ -45,7 +45,7 @@ const UnsubscribeConfirmation = () => {
               You've successfully unsubscribed. We respect your decision and
               will make sure no further emails are sent to your inbox.
             </p>
-            <p className="mt-2">
+            <p className="mt-2 text-green-700">
               If you change your mind, you can easily subscribe again by
               clicking the button below:
             </p>
