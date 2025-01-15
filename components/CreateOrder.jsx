@@ -41,9 +41,12 @@ const CreateOrder = () => {
   // Scroll to the order form container when the step changes, but only if the form has been submitted
   useEffect(() => {
     if (isFormSubmitted && orderFormRef.current) {
-      orderFormRef.current.scrollIntoView({
+      const headerHeight = document.querySelector("header")?.offsetHeight || 0; // Get the header height
+      const elementTop =
+        orderFormRef.current.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({
+        top: elementTop - headerHeight - 20, // Adjust with a margin if needed
         behavior: "smooth",
-        block: "start",
       });
     }
   }, [step, isFormSubmitted]);
@@ -132,7 +135,6 @@ const CreateOrder = () => {
         setResponse(jsonData.message);
       }
       setIsLoading(false);
-      console.log("response: ", jsonData);
     }
     creatingOrder();
   };
