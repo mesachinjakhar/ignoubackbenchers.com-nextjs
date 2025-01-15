@@ -115,7 +115,7 @@ export const Header = () => {
       )}
 
       {/* Padding for content below fixed header */}
-      <div className="pt-[85px]"></div>
+      <div className="pt-[87px]"></div>
     </>
   );
 };
