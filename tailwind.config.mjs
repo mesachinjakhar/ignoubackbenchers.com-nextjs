@@ -18,8 +18,11 @@ export default {
       keyframes: {
         scrollText: {
           "0%": { transform: "translateX(100%)" },
-          "100%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(-105%)" },
         },
+      },
+      animation: {
+        scrollText: "scrollText 13s linear infinite",
       },
     },
   },
