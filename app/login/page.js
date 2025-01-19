@@ -108,6 +108,44 @@ const Login = () => {
     };
   }, [response]);
 
+  useEffect(() => {
+    // Function to check if the token is valid
+    async function verifyToken() {
+      try {
+        const response = await fetch(
+          "https://ignou-backend-sikx.onrender.com/verify-token",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include", // Send cookies with the request
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Token is valid, you can redirect the user or update state
+          setMessage("Token is valid. Redirecting...");
+          setIsLoading(false);
+          // Redirect to home page or dashboard
+          router.push("/home"); // Example redirect
+        } else {
+          // Token is invalid or expired, stay on login page
+          setMessage("Please log in.");
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error("Error verifying token:", error);
+        setMessage("Error verifying token.");
+        setIsLoading(false);
+      }
+    }
+
+    verifyToken();
+  }, []);
+
   return (
     <div className="login px-[300px] mt-[7%] mb-[80px] xs:px-[30px]">
       <h1>Login/Signup</h1>
