@@ -88,7 +88,7 @@ const Login = () => {
           if (router) {
             router.replace("/");
           }
-        }, 1000);
+        }, 1000000);
         setId(timeId);
       }
     }
