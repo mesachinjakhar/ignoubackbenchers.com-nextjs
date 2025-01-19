@@ -39,7 +39,7 @@ const Login = () => {
     async function sendOtp() {
       setSendingOtp(true);
       const response = await fetch(
-        `https://ignou-backend-sikx.onrender.com/otp/?email=${encodeURIComponent(
+        `https://api.ignoubackbenchers.com/otp/?email=${encodeURIComponent(
           email
         )}`,
         {
@@ -71,7 +71,7 @@ const Login = () => {
       setMessage("Kindly fill all the required details");
     } else {
       setIsLoading(true);
-      const data = await fetch("https://ignou-backend-sikx.onrender.com/user", {
+      const data = await fetch("https://api.ignoubackbenchers.com/user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
