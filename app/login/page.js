@@ -5,12 +5,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
+  // from state
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
+
+  // login response state
   const [response, setResponse] = useState({});
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [id, setId] = useState("");
+
+  // otp state
+  const [sendingOtp, setSendingOtp] = useState(false);
+  const [optResponse, setOtpResponse] = useState({});
 
   const router = useRouter();
 
@@ -24,6 +31,36 @@ const Login = () => {
     setOtp(e.target.value);
   }
 
+  function handleOtpSend() {
+    if (!email) {
+      return setMessage("Enter valid email");
+    }
+
+    async function sendOtp() {
+      setSendingOtp(true);
+      const response = await fetch(
+        `https://ignou-backend-sikx.onrender.com/otp/?email=${encodeURIComponent(
+          email
+        )}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      if (response.ok) {
+        setSendingOtp(false);
+        setOtpResponse(data);
+      } else {
+        return setMessage("Error: ", data.message);
+        setSendingOtp(false);
+      }
+    }
+    sendOtp();
+  }
+
   async function handleSubmit(e) {
     if (otp.length < 6 || otp.length > 6) {
       return setMessage("Otp Length Should be 6 digits");
@@ -34,24 +71,33 @@ const Login = () => {
       setMessage("Kindly fill all the required details");
     } else {
       setIsLoading(true);
-      const data = await fetch(
-        "https://testingbyignou.azurewebsites.net/api/test?code=PdubVYXcgHTB8iVEuxV7TGUkODuWoBLhdQJIHDyaX9QkAzFuETwK0A%3D%3D&name=sachin"
-      );
+      const data = await fetch("https://ignou-backend-sikx.onrender.com/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, otp: otp }),
+      });
+
       const jsonData = await data.json();
       setResponse(jsonData);
-      const timeId = setTimeout(() => {
-        if (router) {
-          router.replace("/");
-        }
-      }, 1000);
-      setId(timeId);
+
+      if (jsonData.status == "true") {
+        const timeId = setTimeout(() => {
+          if (router) {
+            router.replace("/");
+          }
+        }, 1000);
+        setId(timeId);
+      }
     }
   }
 
   useEffect(() => {
-    if (response?.status === "true") {
+    if (response?.status == "true") {
+      setIsLoading(false);
       setMessage("Success. Redirecting to your home page...");
-    } else if (response?.status === "false") {
+    } else if (response?.status == "false") {
       setIsLoading(false);
       setMessage("Wrong Otp");
     }
@@ -78,7 +124,21 @@ const Login = () => {
           required
         />
 
+        <p
+          onClick={() => {
+            handleOtpSend();
+          }}
+          className="text-green-700 cursor-pointer  text-end ml-[500px]"
+        >
+          {sendingOtp === false && optResponse.status != "true"
+            ? "Send Otp"
+            : ""}
+          {sendingOtp === true ? "Sending Otp" : ""}
+          {optResponse.status == "true" ? "Otp Sent" : ""}
+        </p>
+
         {/* OTP Field */}
+
         <label htmlFor="otp">OTP:</label>
         <input
           type="text"
@@ -91,7 +151,6 @@ const Login = () => {
           title="OTP must be exactly 6 digits"
           required
         />
-
         <p
           style={
             response.status == "true"
