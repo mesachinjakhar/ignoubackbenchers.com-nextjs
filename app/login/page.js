@@ -54,8 +54,8 @@ const Login = () => {
         setSendingOtp(false);
         setOtpResponse(data);
       } else {
-        return setMessage("Error: ", data.message);
         setSendingOtp(false);
+        return setMessage(data.message);
       }
     }
     sendOtp();
