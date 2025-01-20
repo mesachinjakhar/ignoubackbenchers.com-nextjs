@@ -115,7 +115,7 @@ const Login = () => {
       setIsLoading(true);
       try {
         const response = await fetch(
-          "https://ignou-backend-sikx.onrender.com/verify-token",
+          "https://api.ignoubackbenchers.com/verify-token",
           {
             method: "GET",
             headers: {
