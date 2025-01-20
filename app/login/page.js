@@ -3,102 +3,78 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { sendOtp, verifyToken } from "@/helpers/apiHelpers";
 
 const Login = () => {
-  // from state
+  // Form state
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
 
-  // login response state
-  const [response, setResponse] = useState({});
+  // Login response state
+  const [loginResponse, setLoginResponse] = useState({});
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [id, setId] = useState("");
 
-  // otp state
+  // Otp state
   const [sendingOtp, setSendingOtp] = useState(false);
-  const [optResponse, setOtpResponse] = useState({});
 
+  // Router to navigate/redirect user
   const router = useRouter();
 
+  // state handler for email
   function handleEmailChange(e) {
     setMessage("");
     setEmail(e.target.value);
   }
 
+  // state handle for otp
   function handleOtpChange(e) {
     setMessage("");
     setOtp(e.target.value);
   }
 
-  function handleOtpSend() {
+  // Fn to send otp
+  async function handleOtpSend() {
+    // check if email is present
     if (!email) {
       return setMessage("Enter valid email");
     }
+    setSendingOtp(true);
+    // send otp
+    const response = await sendOtp(email);
 
-    async function sendOtp() {
-      setSendingOtp(true);
-      const response = await fetch(
-        `https://api.ignoubackbenchers.com/otp/?email=${encodeURIComponent(
-          email
-        )}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const data = await response.json();
-      if (response.ok) {
-        setSendingOtp(false);
-        setOtpResponse(data);
-      } else {
-        setSendingOtp(false);
-        return setMessage(data.message);
-      }
+    // check otp response
+    if (response.status) {
+      setSendingOtp(false);
+      return setMessage("Otp sent successfully");
+    } else {
+      setSendingOtp(false);
+      return setMessage(response.error);
     }
-    sendOtp();
   }
 
+  // Fn to submit login form
   async function handleSubmit(e) {
+    e.preventDefault();
+    if (!email) {
+      return setMessage("Enter valid email");
+    }
     if (otp.length < 6 || otp.length > 6) {
       return setMessage("Otp Length Should be 6 digits");
     }
-    e.preventDefault();
     setMessage("");
     if (!email || !otp) {
-      setMessage("Kindly fill all the required details");
-    } else {
-      setIsLoading(true);
-      const data = await fetch("https://api.ignoubackbenchers.com/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: email, otp: otp }),
-        credentials: "include",
-      });
-
-      const jsonData = await data.json();
-      setResponse(jsonData);
-
-      if (jsonData.status == "true") {
-        const timeId = setTimeout(() => {
-          if (router) {
-            router.replace("/");
-          }
-        }, 1000000);
-        setId(timeId);
-      }
+      return setMessage("Kindly fill all the required details");
     }
   }
 
+  // Update response state
   useEffect(() => {
-    if (response?.status == "true") {
+    if (loginResponse?.status == "true") {
       setIsLoading(false);
       setMessage("Success. Redirecting to your home page...");
-    } else if (response?.status == "false") {
+    } else if (loginResponse?.status == "false") {
       setIsLoading(false);
       setMessage("Wrong Otp");
     }
@@ -107,12 +83,17 @@ const Login = () => {
         clearTimeout(id);
       }
     };
-  }, [response]);
+  }, [loginResponse]);
 
+  //Check if user already logged in
   useEffect(() => {
-    // Function to check if the token is valid
-
-    verifyToken();
+    async () => {
+      const response = await verifyToken();
+      if (response.status) {
+        router.push("/");
+      }
+      return;
+    };
   }, []);
 
   return (
@@ -132,16 +113,10 @@ const Login = () => {
         />
 
         <p
-          onClick={() => {
-            handleOtpSend();
-          }}
+          onClick={handleOtpSend}
           className="text-green-700 cursor-pointer  text-end ml-[500px]"
         >
-          {sendingOtp === false && optResponse.status != "true"
-            ? "Send Otp"
-            : ""}
-          {sendingOtp === true ? "Sending Otp" : ""}
-          {optResponse.status == "true" ? "Otp Sent" : ""}
+          {sendingOtp === true ? "Sending Otp" : "Send Otp"}
         </p>
 
         {/* OTP Field */}
@@ -160,7 +135,7 @@ const Login = () => {
         />
         <p
           style={
-            response.status == "true"
+            loginResponse.status == true
               ? { color: "green", fontSize: 20 }
               : { color: "red", fontSize: 20 }
           }

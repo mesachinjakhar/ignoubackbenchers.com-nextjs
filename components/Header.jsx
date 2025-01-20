@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <>
-      <header className="flex gap-2.5 justify-between px-12 py-4 items-center text-center mb-0 bg-white border-b-2 xs:px-4 fixed top-0 left-0 right-0 z-10">
+      <header className="flex gap-2.5 justify-between px-12 py-[12px] items-center text-center mb-0 bg-white border-b-2 xs:px-4 fixed top-0 left-0 right-0 z-10">
         {/* Logo Section */}
         <div className="logo hover:cursor-pointer flex gap-3 text-center items-center xs:gap-1">
           <div className="w-16 md:w-20 lg:w-16">
@@ -27,15 +27,15 @@ export const Header = () => {
             />
           </div>
           <Link href="/" aria-label="Go to Ignou BackBenchers Home">
-            <h2 className="text-2xl text-center text-black xs:text-lg">
-              Ignou BackBenchers
+            <h2 className="text-xl text-center text-black xs:text-lg">
+              IgnouBackBenchers
             </h2>
           </Link>
         </div>
 
         {/* Navigation Section */}
         <nav aria-label="Primary Navigation" className="xs:hidden">
-          <ul className="flex list-none gap-5 items-center m-0 p-0 text-center">
+          <ul className="flex list-none gap-5 items-center text-center">
             <li>
               <Link
                 href="/my-orders"
@@ -115,7 +115,7 @@ export const Header = () => {
       )}
 
       {/* Padding for content below fixed header */}
-      <div className="pt-[85px]"></div>
+      <div className="pt-[75px]"></div>
     </>
   );
 };
