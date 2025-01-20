@@ -141,8 +141,10 @@ const CreateOrder = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(orderDetails),
+        credentials: "include",
       });
       const jsonResponse = await response.json();
+      console.log("Api Response: ", jsonResponse);
       if (jsonResponse.status == "true") {
         setResponse("Order has been place successfully.");
       } else {
