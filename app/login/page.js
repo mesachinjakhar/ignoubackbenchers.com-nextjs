@@ -111,39 +111,6 @@ const Login = () => {
 
   useEffect(() => {
     // Function to check if the token is valid
-    async function verifyToken() {
-      setIsLoading(true);
-      try {
-        const response = await fetch(
-          "https://api.ignoubackbenchers.com/verify-token",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include", // Send cookies with the request
-          }
-        );
-
-        const data = await response.json();
-
-        if (response.ok) {
-          // Token is valid, you can redirect the user or update state
-          setMessage("Login success, Redirecting...");
-          setIsLoading(false);
-          // Redirect to home page or dashboard
-          router.push("/"); // Example redirect
-        } else {
-          // Token is invalid or expired, stay on login page
-          setMessage("Please log in.");
-          setIsLoading(false);
-        }
-      } catch (error) {
-        console.error("Error verifying token:", error);
-        setMessage("Error verifying token.");
-        setIsLoading(false);
-      }
-    }
 
     verifyToken();
   }, []);
