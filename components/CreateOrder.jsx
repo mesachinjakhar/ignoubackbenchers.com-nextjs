@@ -103,11 +103,12 @@ const CreateOrder = () => {
     }
 
     setFormData({
+      sessionId: sessionId,
       medium: form.medium.value,
       email: form.email.value,
       programme: form.programme.value,
-      assignments: form.assignments.value,
-      codes: form.codes.value,
+      numberOfAssignments: form.assignments.value,
+      assignmentCodes: form.codes.value,
     });
     setStep(2); // Move to the second step
     setIsFormSubmitted(true); // Mark that the form has been submitted
