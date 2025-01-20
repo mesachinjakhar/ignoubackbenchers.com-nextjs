@@ -19,7 +19,7 @@ const CreateOrder = () => {
   const [response, setResponse] = useState("");
   const [sessionId, setSessionId] = useState("");
 
-  const headline = "Order Handwritten Assignment:";
+  // const headline = "Order Handwritten Assignment:";
 
   useEffect(() => {
     function generateSessionId() {
@@ -116,7 +116,17 @@ const CreateOrder = () => {
   const handlePlaceOrder = (e) => {
     e.preventDefault();
     setResponse("");
+
     const form = e.target.closest("form");
+    const orderDetails = {
+      ...formData,
+      page: form.page.value,
+      session: form.session.value,
+      name: form.fullName.value,
+      mobile: form.mobile.value,
+      address: form.address.value,
+      pincode: form.pincode.value,
+    };
 
     // Validate address form fields
     if (!validateForm(form)) {
@@ -125,14 +135,18 @@ const CreateOrder = () => {
     // setIsLoading("true");
     async function creatingOrder() {
       setIsLoading(true);
-      const data = await fetch(
-        "https://testingbyignou.azurewebsites.net/api/createOrder?code=R24oFNJuVaeAIszfvydUa2jR7uD7DOpQ3M1vWLF4HQMRAzFuRnafEg%3D%3D&name=sachin"
-      );
-      const jsonData = await data.json();
-      if (jsonData.status === "true") {
+      const response = await fetch("https://api.ignoubackbenchers.com/order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(orderDetails),
+      });
+      const jsonResponse = await response.json();
+      if (jsonResponse.status == "true") {
         setResponse("Order has been place successfully.");
       } else {
-        setResponse(jsonData.message);
+        setResponse(jsonResponse.message);
       }
       setIsLoading(false);
     }
@@ -213,8 +227,8 @@ const CreateOrder = () => {
 
           <div className="order-address">
             <form className="order-form" onSubmit={handlePlaceOrder}>
-              <label htmlFor="pages">Type of Pages Required</label>
-              <select id="pages" required>
+              <label htmlFor="page">Type of Pages Required</label>
+              <select id="page" required>
                 <option value="A4 Ruled">A4 Ruled Sheet</option>
                 <option value="A4 Plain">A4 Plain Sheet</option>
               </select>
@@ -224,6 +238,14 @@ const CreateOrder = () => {
                 type="text"
                 id="session"
                 placeholder="e.g., Jan 2024, July 2025"
+                required
+              />
+
+              <label htmlFor="session">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                placeholder="e.g., Sahil Chahar"
                 required
               />
 
