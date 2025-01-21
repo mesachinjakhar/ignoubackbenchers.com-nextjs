@@ -45,6 +45,7 @@ export async function loginUser(email, otp) {
 
 // JWT Token verification
 export async function verifyToken() {
+  console.log("verify token fn called");
   return apiRequest("https://api.ignoubackbenchers.com/verify-token");
 }
 
@@ -54,4 +55,9 @@ export async function createOrder(orderDetails) {
     "POST",
     orderDetails
   );
+}
+
+export async function fetchOrder() {
+  console.log("fetch order called");
+  return apiRequest("https://api.ignoubackbenchers.com/order", "GET");
 }

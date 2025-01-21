@@ -39,7 +39,7 @@ const Login = () => {
     const id = () => {
       setTimeout(() => {
         router.push("/");
-      }, 3000);
+      }, 1000);
     };
     setTimeoutId(id);
   };
@@ -108,13 +108,18 @@ const Login = () => {
 
   //Check if user already logged in
   useEffect(() => {
-    async () => {
+    console.log("token use effect called");
+    const verfiyToken = async () => {
+      console.log("calling api");
       const response = await verifyToken();
+      console.log("token response: ", response);
       if (response.status) {
-        router.push("/");
+        setLoginResponse({ status: true });
+        delayThreeSeconds();
       }
       return;
     };
+    verfiyToken();
   }, []);
 
   return (

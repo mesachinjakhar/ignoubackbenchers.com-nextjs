@@ -73,6 +73,15 @@ const CreateOrder = () => {
     setResponse("");
 
     const form = e.target.closest("form");
+
+    if (!sessionId) {
+      return setError("Order already placed. Refresh page to order again");
+    }
+
+    if (!form.address.value || !form.pincode.value || !form.mobile.value) {
+      return setError("Enter all the required details");
+    }
+
     const orderDetails = {
       ...formData,
       page: form.page.value,
@@ -94,6 +103,7 @@ const CreateOrder = () => {
       const response = await createOrder(orderDetails);
       if (response.status) {
         setResponse("Order placed successfully");
+        setSessionId("");
         return setIsLoading(false);
       } else {
         setResponse(response.error);
