@@ -19,7 +19,7 @@ const QuickActions = () => {
               />
             </div>
           </div>
-          <p className=" text-lg">IGNOU Solved Assignments</p>
+          <p className=" text-base">IGNOU Handwritten Assignments</p>
         </div>
       </Link>
 
@@ -37,7 +37,7 @@ const QuickActions = () => {
               />
             </div>
           </div>
-          <p className=" text-lg">IGNOU Solved Assignments</p>
+          <p className=" text-base">IGNOU Solved Assignments</p>
         </div>
       </Link>
 
@@ -57,7 +57,7 @@ const QuickActions = () => {
               />
             </div>
           </div>
-          <p className=" text-lg">IGNOU Solved Assignments</p>
+          <p className=" text-base">IGNOU Last Year Questions</p>
         </div>
       </Link>
     </div>
