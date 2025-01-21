@@ -140,13 +140,12 @@ export const Header = () => {
               </a>
             </li>
             <li>
-              <Link
-                href="/"
+              <a
                 className="block text-gray-700 hover:text-gray-900 py-2"
                 onClick={handleLogout}
               >
                 {user.length > 0 ? user : "LOGIN"}
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
