@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { validateForm } from "@/helpers/validation";
+import { generateSessionId } from "@/utils/sessionId";
+import { createOrder } from "@/helpers/apiHelpers";
 
 const CreateOrder = () => {
   const [step, setStep] = useState(1); // Track the current step
@@ -9,8 +12,8 @@ const CreateOrder = () => {
     medium: "",
     email: "",
     programme: "",
-    assignments: "",
-    codes: "",
+    numberOfAssignments: "",
+    assignmentCodes: "",
   });
 
   const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Track if the form has been submitted
@@ -19,20 +22,10 @@ const CreateOrder = () => {
   const [response, setResponse] = useState("");
   const [sessionId, setSessionId] = useState("");
 
-  // const headline = "Order Handwritten Assignment:";
-
+  // Generate session id
   useEffect(() => {
-    function generateSessionId() {
-      const characters =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-      let sessionId = "";
-      for (let i = 0; i < 16; i++) {
-        const randomIndex = Math.floor(Math.random() * characters.length);
-        sessionId += characters[randomIndex];
-      }
-      setSessionId(sessionId);
-    }
-    generateSessionId();
+    const response = generateSessionId();
+    setSessionId(response.data.sessionId);
   }, []);
 
   // Ref for the order form container
@@ -51,54 +44,14 @@ const CreateOrder = () => {
     }
   }, [step, isFormSubmitted]);
 
-  const validateForm = (form) => {
-    // Validate Number of Assignments (should be a number)
-    if (form.assignments && !/^\d+$/.test(form.assignments.value)) {
-      setError("Number of Assignments should be a valid number.");
-      return false;
-    }
-
-    // Validate Programme (should contain only letters)
-    if (form.programme && !/^[A-Za-z]+$/.test(form.programme.value)) {
-      setError("Programme should contain only letters.");
-      return false;
-    }
-
-    // Validate Assignment Codes (should contain both letters and numbers)
-    if (
-      form.codes &&
-      (!/[A-Za-z]/.test(form.codes.value) || !/\d/.test(form.codes.value))
-    ) {
-      setError("Assignment Codes should contain both letters and numbers.");
-      return false;
-    }
-
-    // Validate Assignment Session (should contain both letters and numbers)
-    if (
-      form.session &&
-      (!/[A-Za-z]/.test(form.session.value) || !/\d/.test(form.session.value))
-    ) {
-      setError("Assignment Session should contain both letters and numbers.");
-      return false;
-    }
-
-    // Validate Full Address (minimum length of 10 characters)
-    if (form.address && form.address.value.length < 10) {
-      setError("Full Address should be at least 10 characters long.");
-      return false;
-    }
-
-    // If all validations pass, return true
-    setError(""); // Clear any previous error
-    return true;
-  };
-
   const handleContinue = (e) => {
     e.preventDefault(); // Prevent form submission
     const form = e.target.closest("form");
 
+    const response = validateForm(form);
     // Validate form before proceeding to next step
-    if (!validateForm(form)) {
+    if (!response.status) {
+      setError(response.error);
       return; // Prevent form submission if validation fails
     }
 
@@ -110,6 +63,7 @@ const CreateOrder = () => {
       numberOfAssignments: form.assignments.value,
       assignmentCodes: form.codes.value,
     });
+    setError("");
     setStep(2); // Move to the second step
     setIsFormSubmitted(true); // Mark that the form has been submitted
   };
@@ -129,29 +83,22 @@ const CreateOrder = () => {
       pincode: form.pincode.value,
     };
 
-    // Validate address form fields
-    if (!validateForm(form)) {
-      return; // Prevent submission if validation fails
+    const response = validateForm(form);
+    // Validate form before proceeding to next step
+    if (!response.status) {
+      return setError(response.error);
     }
-    // setIsLoading("true");
+
     async function creatingOrder() {
-      setIsLoading(true);
-      const response = await fetch("https://api.ignoubackbenchers.com/order", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(orderDetails),
-        credentials: "include",
-      });
-      const jsonResponse = await response.json();
-      console.log("Api Response: ", jsonResponse);
-      if (jsonResponse.status == "true") {
-        setResponse("Order has been place successfully.");
+      setIsLoading(true); // setIsLoading("true");
+      const response = await createOrder(orderDetails);
+      if (response.status) {
+        setResponse("Order placed successfully");
+        return setIsLoading(false);
       } else {
-        setResponse(jsonResponse.message);
+        setResponse(response.error);
+        return setIsLoading(false);
       }
-      setIsLoading(false);
     }
     creatingOrder();
   };
@@ -197,7 +144,7 @@ const CreateOrder = () => {
               type="number"
               id="assignments"
               placeholder="e.g., 1"
-              defaultValue={formData.assignments}
+              defaultValue={formData.numberOfAssignments}
               required
             />
             <label htmlFor="codes">Assignment Codes</label>
@@ -205,7 +152,7 @@ const CreateOrder = () => {
               type="text"
               id="codes"
               placeholder="e.g., BEGAE-181, BEGAE-183, IBO-001"
-              defaultValue={formData.codes}
+              defaultValue={formData.assignmentCodes}
               required
             />
             <p>Next Step: Address</p>

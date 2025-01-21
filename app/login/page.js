@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { sendOtp, verifyToken } from "@/helpers/apiHelpers";
+import { sendOtp, verifyToken, loginUser } from "@/helpers/apiHelpers";
 
 const Login = () => {
   // Form state
@@ -14,7 +14,7 @@ const Login = () => {
   const [loginResponse, setLoginResponse] = useState({});
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [id, setId] = useState("");
+  const [timeoutId, setTimeoutId] = useState("");
 
   // Otp state
   const [sendingOtp, setSendingOtp] = useState(false);
@@ -33,6 +33,16 @@ const Login = () => {
     setMessage("");
     setOtp(e.target.value);
   }
+
+  // fn to redirect after 5 seconds
+  const delayThreeSeconds = () => {
+    const id = () => {
+      setTimeout(() => {
+        router.push("/");
+      }, 3000);
+    };
+    setTimeoutId(id);
+  };
 
   // Fn to send otp
   async function handleOtpSend() {
@@ -67,20 +77,31 @@ const Login = () => {
     if (!email || !otp) {
       return setMessage("Kindly fill all the required details");
     }
+
+    setIsLoading(true);
+    const response = await loginUser(email, otp);
+    if (response.status) {
+      setIsLoading(false);
+      setLoginResponse({ status: true });
+      delayThreeSeconds();
+    } else {
+      setIsLoading(false);
+      setLoginResponse({ status: false });
+    }
   }
 
   // Update response state
   useEffect(() => {
-    if (loginResponse?.status == "true") {
+    if (loginResponse?.status == true) {
       setIsLoading(false);
       setMessage("Success. Redirecting to your home page...");
-    } else if (loginResponse?.status == "false") {
+    } else if (loginResponse?.status == false) {
       setIsLoading(false);
       setMessage("Wrong Otp");
     }
     return () => {
-      if (id) {
-        clearTimeout(id);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
       }
     };
   }, [loginResponse]);

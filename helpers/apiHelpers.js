@@ -47,3 +47,11 @@ export async function loginUser(email, otp) {
 export async function verifyToken() {
   return apiRequest("https://api.ignoubackbenchers.com/verify-token");
 }
+
+export async function createOrder(orderDetails) {
+  return apiRequest(
+    "https://api.ignoubackbenchers.com/order",
+    "POST",
+    orderDetails
+  );
+}
