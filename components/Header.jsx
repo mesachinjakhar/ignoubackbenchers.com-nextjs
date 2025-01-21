@@ -31,7 +31,7 @@ export const Header = () => {
 
       // Debug after removal
       console.log("Cookies after removal:", document.cookie);
-
+      setUser("");
       // Redirect to login
       router.push("/login");
     }
