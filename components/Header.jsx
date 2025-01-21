@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { verifyToken } from "@/helpers/apiHelpers";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu visibility
@@ -19,15 +20,17 @@ export const Header = () => {
   const handleLogout = async () => {
     handleMenuClick();
     if (user.length > 0) {
-      const response = await fetch("https://api.ignoubackbenchers.com/logout", {
-        method: "POST",
-      });
-      if (response.ok) {
-        console.log("Cookie removed");
-        return router.push("/login");
-      } else {
-        return console.error("Failed to remove cookie");
-      }
+      // Debug the existing cookies
+      console.log("Existing Cookies:", document.cookie);
+
+      // Attempt to remove the cookie
+      Cookies.remove("access_token", { path: "/" });
+
+      // Debug after removal
+      console.log("Cookies after removal:", document.cookie);
+
+      // Redirect to login
+      router.push("/login");
     }
     router.push("/login");
   };
