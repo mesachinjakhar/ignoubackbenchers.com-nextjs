@@ -24,7 +24,10 @@ export const Header = () => {
       console.log("Existing Cookies:", document.cookie);
 
       // Attempt to remove the cookie
-      Cookies.remove("access_token", { path: "/" });
+      Cookies.remove("access_token", {
+        path: "/",
+        domain: ".ignoubackbenchers.com",
+      });
 
       // Debug after removal
       console.log("Cookies after removal:", document.cookie);
