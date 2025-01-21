@@ -50,13 +50,21 @@ const MyOrder = ({ orders }) => {
             <div>
               <h1>No Orders found</h1>{" "}
               <h5 className="mt-5">
-                👉 <a className="underline cursor-pointer">Click here</a> to
-                create your first order
+                👉{" "}
+                <a href="/order" className="underline cursor-pointer">
+                  Click here
+                </a>{" "}
+                to create your first order
               </h5>
               <h5 className="mt-5">
                 🙋‍♂️ Need help?{" "}
-                <a className="underline cursor-pointer">Click here</a> to talk
-                us on WhatsApp
+                <a
+                  href="https://wa.me/919053442043"
+                  className="underline cursor-pointer"
+                >
+                  Click here
+                </a>{" "}
+                to talk us on WhatsApp
               </h5>
             </div>
           ) : (
