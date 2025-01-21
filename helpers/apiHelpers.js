@@ -45,7 +45,6 @@ export async function loginUser(email, otp) {
 
 // JWT Token verification
 export async function verifyToken() {
-  console.log("verify token fn called");
   return apiRequest("https://api.ignoubackbenchers.com/verify-token");
 }
 

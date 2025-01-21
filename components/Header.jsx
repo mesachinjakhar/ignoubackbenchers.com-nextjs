@@ -4,21 +4,35 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { verifyToken } from "@/helpers/apiHelpers";
+import { useRouter } from "next/navigation";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu visibility
   const [user, setUser] = useState("");
 
+  const router = useRouter();
+
   function handleMenuClick() {
     setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
   }
 
+  const handleLogout = async () => {
+    const response = await fetch("https://api.ignoubackbenchers.com/logout", {
+      method: "POST",
+    });
+    if (response.ok) {
+      console.log("Cookie removed");
+      router.push("/login");
+    } else {
+      console.error("Failed to remove cookie");
+    }
+  };
   //Check if user already logged in
   useEffect(() => {
     const verfiyToken = async () => {
       const response = await verifyToken();
       if (response.status) {
-        setUser("Dashboard");
+        setUser("LOGOUT");
       }
     };
     verfiyToken();
@@ -70,12 +84,10 @@ export const Header = () => {
               </a>
             </li>
             <li>
-              <Link
-                href={`${user.length > 0 ? "/my-orders" : "/login"}`}
-                aria-label="Login to your account"
-              >
-                <button> {user.length > 0 ? user : "LOGIN"}</button>
-              </Link>
+              <button onClick={handleLogout}>
+                {" "}
+                {user.length > 0 ? user : "LOGIN"}
+              </button>
             </li>
           </ul>
         </nav>
