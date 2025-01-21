@@ -67,6 +67,7 @@ const CreateOrder = () => {
       if (response.status) {
         setResponse("Order placed successfully");
         setSessionId("");
+        router.push("/my-orders");
         return setIsLoading(false);
       } else {
         setResponse(response.error);
