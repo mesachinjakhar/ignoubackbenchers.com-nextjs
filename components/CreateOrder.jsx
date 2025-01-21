@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { validateForm } from "@/helpers/validation";
 import { generateSessionId } from "@/utils/sessionId";
-import { createOrder } from "@/helpers/apiHelpers";
+import { createOrder, loginUser, sendOtp } from "@/helpers/apiHelpers";
 
 const CreateOrder = () => {
   const [step, setStep] = useState(1); // Track the current step
@@ -21,6 +21,8 @@ const CreateOrder = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [response, setResponse] = useState("");
   const [sessionId, setSessionId] = useState("");
+  const [showOtpInput, setShowOtpInput] = useState(false);
+  const [orderDetails, setOrderDetailes] = useState({});
 
   // Generate session id
   useEffect(() => {
@@ -44,6 +46,34 @@ const CreateOrder = () => {
     }
   }, [step, isFormSubmitted]);
 
+  // Try to lgging user using otp
+  const loginDuringOrder = async (email, otp) => {
+    const loginResult = await loginUser(email, otp);
+    if (loginResult.status) {
+      handlePlaceOrderWithOtp(orderDetails);
+    } else {
+      setError(loginResult.error);
+    }
+  };
+
+  // Try to place order again after login success
+  const handlePlaceOrderWithOtp = (orderDetails) => {
+    async function creatingOrder() {
+      setIsLoading(true); // setIsLoading("true");
+      const response = await createOrder(orderDetails);
+      if (response.status) {
+        setResponse("Order placed successfully");
+        setSessionId("");
+        return setIsLoading(false);
+      } else {
+        setResponse(response.error);
+        return setIsLoading(false);
+      }
+    }
+    creatingOrder();
+  };
+
+  // Continue button handler
   const handleContinue = (e) => {
     e.preventDefault(); // Prevent form submission
     const form = e.target.closest("form");
@@ -68,11 +98,21 @@ const CreateOrder = () => {
     setIsFormSubmitted(true); // Mark that the form has been submitted
   };
 
+  // Place Order Handler
   const handlePlaceOrder = (e) => {
     e.preventDefault();
+
     setResponse("");
 
     const form = e.target.closest("form");
+
+    // check if otp show is true and value is present
+    if (showOtpInput) {
+      if (!form.otp.value) {
+        return setError("Enter Otp");
+      }
+      return loginDuringOrder(formData.email, form.otp.value); // Call loging handler
+    }
 
     if (!sessionId) {
       return setError("Order already placed. Refresh page to order again");
@@ -92,11 +132,7 @@ const CreateOrder = () => {
       pincode: form.pincode.value,
     };
 
-    const response = validateForm(form);
-    // Validate form before proceeding to next step
-    if (!response.status) {
-      return setError(response.error);
-    }
+    setOrderDetailes(orderDetails);
 
     async function creatingOrder() {
       setIsLoading(true); // setIsLoading("true");
@@ -105,6 +141,16 @@ const CreateOrder = () => {
         setResponse("Order placed successfully");
         setSessionId("");
         return setIsLoading(false);
+      }
+      if (response.error === "Token invalid") {
+        const otpResponse = await sendOtp(orderDetails.email);
+        if (otpResponse.status) {
+          console.log("login response true");
+          setIsLoading(false);
+          setShowOtpInput(true);
+        } else {
+          setError("Error sending Otp");
+        }
       } else {
         setResponse(response.error);
         return setIsLoading(false);
@@ -232,6 +278,21 @@ const CreateOrder = () => {
                 id="pincode"
                 pattern="[0-9]{6}"
                 placeholder="e.g., 110016"
+                required
+              />
+
+              <label
+                className={`${showOtpInput === false ? "hidden" : "block"}`}
+                htmlFor="pincode"
+              >
+                Enter Otp
+              </label>
+              <input
+                className={`${showOtpInput === false ? "hidden" : "block"}`}
+                type="number"
+                id="otp"
+                pattern="[0-9]{6}"
+                placeholder="e.g., 123456"
                 required
               />
 

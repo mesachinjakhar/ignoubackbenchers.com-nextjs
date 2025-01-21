@@ -58,6 +58,16 @@ export async function createOrder(orderDetails) {
 }
 
 export async function fetchOrder() {
-  console.log("fetch order called");
   return apiRequest("https://api.ignoubackbenchers.com/order", "GET");
 }
+
+// export async function LoginDuringOrder(email, otp) {
+//   return (loginResult = await apiRequest(
+//     "https://api.ignoubackbenchers.com/user",
+//     "POST",
+//     {
+//       email,
+//       otp,
+//     }
+//   ));
+// }
