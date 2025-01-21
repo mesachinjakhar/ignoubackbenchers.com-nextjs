@@ -20,17 +20,12 @@ export const Header = () => {
   const handleLogout = async () => {
     handleMenuClick();
     if (user.length > 0) {
-      // Debug the existing cookies
-      console.log("Existing Cookies:", document.cookie);
-
       // Attempt to remove the cookie
       Cookies.remove("access_token", {
         path: "/",
         domain: ".ignoubackbenchers.com",
       });
 
-      // Debug after removal
-      console.log("Cookies after removal:", document.cookie);
       setUser("");
       // Redirect to login
       router.push("/login");
