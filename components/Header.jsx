@@ -17,15 +17,19 @@ export const Header = () => {
   }
 
   const handleLogout = async () => {
-    const response = await fetch("https://api.ignoubackbenchers.com/logout", {
-      method: "POST",
-    });
-    if (response.ok) {
-      console.log("Cookie removed");
-      router.push("/login");
-    } else {
-      console.error("Failed to remove cookie");
+    handleMenuClick();
+    if (user.length > 0) {
+      const response = await fetch("https://api.ignoubackbenchers.com/logout", {
+        method: "POST",
+      });
+      if (response.ok) {
+        console.log("Cookie removed");
+        return router.push("/login");
+      } else {
+        return console.error("Failed to remove cookie");
+      }
     }
+    router.push("/login");
   };
   //Check if user already logged in
   useEffect(() => {
@@ -107,7 +111,7 @@ export const Header = () => {
 
       {/* Mobile Menu Section */}
       {isMenuOpen && (
-        <div className="xs:block fixed top-16 left-0 right-0 bg-white shadow-md p-4 z-20">
+        <div className="hidden xs:block fixed top-16 left-0 right-0 bg-white shadow-md p-4 z-20">
           <ul className="list-none">
             <li>
               <Link
@@ -131,11 +135,11 @@ export const Header = () => {
             </li>
             <li>
               <Link
-                href="/login"
+                href="/"
                 className="block text-gray-700 hover:text-gray-900 py-2"
-                onClick={handleMenuClick}
+                onClick={handleLogout}
               >
-                LOGIN
+                {user.length > 0 ? user : "LOGIN"}
               </Link>
             </li>
           </ul>

@@ -140,7 +140,7 @@ const Login = () => {
 
         <p
           onClick={handleOtpSend}
-          className="text-green-700 cursor-pointer  text-end ml-[500px]"
+          className="text-green-700 cursor-pointer  text-end"
         >
           {sendingOtp === true ? "Sending Otp" : "Send Otp"}
         </p>
