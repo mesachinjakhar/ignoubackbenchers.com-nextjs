@@ -2,14 +2,27 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { verifyToken } from "@/helpers/apiHelpers";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Track menu visibility
+  const [user, setUser] = useState("");
 
   function handleMenuClick() {
     setIsMenuOpen(!isMenuOpen); // Toggle menu visibility
   }
+
+  //Check if user already logged in
+  useEffect(() => {
+    const verfiyToken = async () => {
+      const response = await verifyToken();
+      if (response.status) {
+        setUser("Dashboard");
+      }
+    };
+    verfiyToken();
+  }, []);
 
   return (
     <>
@@ -57,8 +70,11 @@ export const Header = () => {
               </a>
             </li>
             <li>
-              <Link href="/login" aria-label="Login to your account">
-                <button>LOGIN</button>
+              <Link
+                href={`${user.length > 0 ? "/my-orders" : "/login"}`}
+                aria-label="Login to your account"
+              >
+                <button> {user.length > 0 ? user : "LOGIN"}</button>
               </Link>
             </li>
           </ul>

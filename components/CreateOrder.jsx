@@ -5,6 +5,7 @@ import Link from "next/link";
 import { validateForm } from "@/helpers/validation";
 import { generateSessionId } from "@/utils/sessionId";
 import { createOrder, loginUser, sendOtp } from "@/helpers/apiHelpers";
+import { useRouter } from "next/navigation";
 
 const CreateOrder = () => {
   const [step, setStep] = useState(1); // Track the current step
@@ -23,6 +24,8 @@ const CreateOrder = () => {
   const [sessionId, setSessionId] = useState("");
   const [showOtpInput, setShowOtpInput] = useState(false);
   const [orderDetails, setOrderDetailes] = useState({});
+
+  const router = useRouter();
 
   // Generate session id
   useEffect(() => {
@@ -100,6 +103,7 @@ const CreateOrder = () => {
 
   // Place Order Handler
   const handlePlaceOrder = (e) => {
+    setError("");
     e.preventDefault();
 
     setResponse("");
@@ -122,6 +126,12 @@ const CreateOrder = () => {
       return setError("Enter all the required details");
     }
 
+    if (form.mobile.value.length != 10) {
+      return setError(
+        "Number should be of 10 digits. If your number is +918354993958 then enter 8354993958"
+      );
+    }
+
     const orderDetails = {
       ...formData,
       page: form.page.value,
@@ -140,6 +150,7 @@ const CreateOrder = () => {
       if (response.status) {
         setResponse("Order placed successfully");
         setSessionId("");
+        router.push("/my-orders");
         return setIsLoading(false);
       }
       if (response.error === "Token invalid") {

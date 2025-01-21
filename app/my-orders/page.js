@@ -81,7 +81,15 @@ const MyOrder = ({ orders }) => {
                 <i className="bi bi-circle-fill text-teal-500 filter blur-[0.2px] text-[14px]"></i>
 
                 <div>
-                  <h5>Order Recieved</h5>
+                  <h5>
+                    {order.status == "confirmed"
+                      ? "Order Confirmed"
+                      : "" || order.status === "shipped"
+                      ? "Order Shipped"
+                      : "" || order.status === "delivered"
+                      ? "Order Delivered"
+                      : ""}
+                  </h5>
                   <p className="mt-[2px] text-[12px]">{order.createdAt}</p>
                 </div>
               </div>
