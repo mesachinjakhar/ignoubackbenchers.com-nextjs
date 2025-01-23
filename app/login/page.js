@@ -124,7 +124,7 @@ const Login = () => {
 
   return (
     <div className="login px-[300px] mt-[7%] mb-[80px] xs:px-[30px]">
-      <h1>Login/Signup</h1>
+      <h1>Login OR Signup</h1>
       <form className="login-form" onSubmit={(e) => e.preventDefault()}>
         {/* Email Field */}
         <label htmlFor="email">Enter Email:</label>
