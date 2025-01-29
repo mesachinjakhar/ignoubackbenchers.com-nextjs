@@ -108,11 +108,8 @@ const Login = () => {
 
   //Check if user already logged in
   useEffect(() => {
-    console.log("token use effect called");
     const verfiyToken = async () => {
-      console.log("calling api");
       const response = await verifyToken();
-      console.log("token response: ", response);
       if (response.status) {
         setLoginResponse({ status: true });
         delayThreeSeconds();
