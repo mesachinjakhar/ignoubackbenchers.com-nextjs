@@ -29,9 +29,8 @@ const MyOrder = ({ orders }) => {
     const fetchData = async () => {
       const response = await fetchOrder();
       if (response.status) {
-        console.log("success order fetched");
         console.log(response);
-        setFetchedOrders(response.data.orders);
+        setFetchedOrders(response.data);
         setILoading(false);
       } else {
         console.log("error fetching orders, ", response);
