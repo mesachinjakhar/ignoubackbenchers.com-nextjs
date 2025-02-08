@@ -30,7 +30,7 @@ const MyOrder = ({ orders }) => {
       const response = await fetchOrder();
       if (response.status) {
         console.log(response);
-        setFetchedOrders(response.data);
+        setFetchedOrders(response.data.data);
         setILoading(false);
       } else {
         console.log("error fetching orders, ", response);
