@@ -27,9 +27,9 @@ export async function sendOtp(email) {
   if (!email) {
     return { status: false, error: "Email is required" };
   }
-  return apiRequest(
-    `https://api.ignoubackbenchers.com/otp/?email=${encodeURIComponent(email)}`
-  );
+  return apiRequest(`https://api.ignoubackbenchers.com/api/v1/otps`, "POST", {
+    email,
+  });
 }
 
 // Login user
@@ -37,7 +37,7 @@ export async function loginUser(email, otp) {
   if (!email || !otp) {
     return { status: false, error: "Email and OTP are required" };
   }
-  return apiRequest("https://api.ignoubackbenchers.com/user", "POST", {
+  return apiRequest("https://api.ignoubackbenchers.com/api/v1/users", "POST", {
     email,
     otp,
   });
@@ -45,19 +45,19 @@ export async function loginUser(email, otp) {
 
 // JWT Token verification
 export async function verifyToken() {
-  return apiRequest("https://api.ignoubackbenchers.com/verify-token");
+  return apiRequest("https://api.ignoubackbenchers.com/api/v1/auth");
 }
 
 export async function createOrder(orderDetails) {
   return apiRequest(
-    "https://api.ignoubackbenchers.com/order",
+    "https://api.ignoubackbenchers.com/api/v1/orders",
     "POST",
     orderDetails
   );
 }
 
 export async function fetchOrder() {
-  return apiRequest("https://api.ignoubackbenchers.com/order", "GET");
+  return apiRequest("https://api.ignoubackbenchers.com/api/v1/orders", "GET");
 }
 
 // export async function LoginDuringOrder(email, otp) {
