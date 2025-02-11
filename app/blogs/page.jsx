@@ -4,11 +4,15 @@ import React from "react";
 const Blogs = () => {
   return (
     <div className="px-10">
-      <h1 className="text-center mt-8 underline">Read our blogs</h1>
-      <div className="flex gap-5 mb-20">
-        <img src="/images/solved-assignments.jpg" alt="" className="w-[40%]" />
+      <h1 className="text-center mt-8 underline xs:text-xl">Read our blogs</h1>
+      <div className="flex gap-5 mb-20 xs:block">
+        <img
+          src="/images/solved-assignments.jpg"
+          alt=""
+          className="w-[40%] xs:w-[100%]"
+        />
         <div>
-          <h1 className="text-xl mb-3 mt-0">
+          <h1 className="text-xl mb-3 mt-0 xs:mt-2">
             IGNOU Solved Assignments: Your Ultimate Guide to Scoring High
           </h1>
           <p className="text-xl">
@@ -26,14 +30,14 @@ const Blogs = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mb-20">
+      <div className="flex gap-5 mb-20 xs:block">
         <img
           src="/images/previous-year-question-papers.jpg"
           alt=""
-          className="w-[40%]"
+          className="w-[40%] xs:w-[100%]"
         />
         <div>
-          <h1 className="text-xl mb-3 mt-0">
+          <h1 className="text-xl mb-3 mt-0 xs:mt-2">
             IGNOU Previous Year Question Papers: Why They Matter & How to Use
             Them
           </h1>
@@ -52,14 +56,14 @@ const Blogs = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mb-20">
+      <div className="flex gap-5 mb-20 xs:block">
         <img
           src="/images/handwritten-assignments.jpg"
           alt=""
-          className="w-[40%]"
+          className="w-[40%] xs:w-[100%]"
         />
         <div>
-          <h1 className="text-xl mb-3 mt-0">
+          <h1 className="text-xl mb-3 mt-0 xs:mt-2">
             Everything You Need to Know About IGNOU Handwritten Assignments
           </h1>
           <p className="text-xl">
