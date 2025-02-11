@@ -6,8 +6,10 @@ export const Alert = () => {
       aria-live="polite"
     >
       <p className="animate-scrollText inline-block m-3 xs:text-sm">
-        <strong>Alert:</strong> Last Date to Submit IGNOU Assignment is{" "}
-        <time dateTime="2025-01-30">30 Jan 2025</time> 🤩 !! Hurry Up!
+        <strong>🚨 Important Update:</strong> The <strong>last date</strong> to
+        submit your <strong>IGNOU Solved Assignments</strong> is{" "}
+        <time dateTime="2025-01-30">30 Jan 2025</time>. ⏳ Don’t miss the
+        deadline!
       </p>
     </div>
   );

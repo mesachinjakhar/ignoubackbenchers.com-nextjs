@@ -12,16 +12,24 @@ const Footer = () => {
             <h3 className="mb-3">Quick Links</h3>
             <ul>
               <li>
-                <Link href="/order">IGNOU Handwritten Assignments</Link>
+                <Link href="/order/solved-assignments">
+                  IGNOU Solved Assignments
+                </Link>
               </li>
               <li>
-                <Link href="/order">IGNOU Solved Assignments</Link>
+                <Link href="/order/previous-year-solved-papers">
+                  IGNOU Handwritten Assignments
+                </Link>
               </li>
               <li>
-                <Link href="/order">IGNOU Projects & Synopsis</Link>
+                <Link href="/order/handwritten-assignments">
+                  IGNOU Last Year Question Papers
+                </Link>
               </li>
               <li>
-                <Link href="/order">IGNOU Books & Guess Papers</Link>
+                <Link href="/order/ignou-projects">
+                  IGNOU Project and IGNOU Synopsis
+                </Link>
               </li>
             </ul>
           </nav>
