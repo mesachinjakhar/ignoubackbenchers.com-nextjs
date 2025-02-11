@@ -3,7 +3,7 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="px-10">
+    <div className="">
       <h1 className="text-center mt-8 underline xs:text-xl">Read our blogs</h1>
       <div className="flex gap-5 mb-20 xs:block">
         <img

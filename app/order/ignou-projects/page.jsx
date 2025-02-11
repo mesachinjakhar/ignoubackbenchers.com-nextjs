@@ -1,3 +1,5 @@
+const Link = require("next/link");
+
 const Projects = () => {
   return (
     <div className="px-44 mt-10 xs:px-5">
@@ -12,10 +14,12 @@ const Projects = () => {
           Download PDF file of IGNOU MBA Project & IGNOU MBA Synopsis Instantly
           i.e., MS 100 & MMPP 1.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -26,10 +30,12 @@ const Projects = () => {
           Download PDF file of IGNOU MAPC Project & IGNOU MAPC Synopsis
           Instantly i.e., MPCE 16, MPCE 26, & MPCE 36.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -40,10 +46,12 @@ const Projects = () => {
           Download PDF file of IGNOU BTS Project & IGNOU BTS Synopsis Instantly
           i.e., PTS 4, PTS 5, PTS 6.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -54,10 +62,12 @@ const Projects = () => {
           Download PDF file of IGNOU AHE Project & IGNOU AHE Synopsis Instantly
           i.e., AHE 01.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -68,10 +78,12 @@ const Projects = () => {
           Download PDF file of IGNOU DNHE Project & IGNOU DNHE Synopsis
           Instantly i.e., DNHE 4.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -82,10 +94,12 @@ const Projects = () => {
           Download PDF file of IGNOU MTTM Project & IGNOU MTTM Synopsis
           Instantly i.e., MTTM 16.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -96,10 +110,12 @@ const Projects = () => {
           Download PDF file of IGNOU MAEDU Project & IGNOU MAEDU Synopsis
           Instantly i.e., MESP 1.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -110,10 +126,12 @@ const Projects = () => {
           Download PDF file of IGNOU MARD Project & IGNOU MARD Synopsis
           Instantly i.e., MRDP 1.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-file-earmark-arrow-down-fill"></i>
-          Download Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-file-earmark-arrow-down-fill"></i>
+            Download Now
+          </button>
+        </Link>
       </div>
 
       <div className="w-[100%] mx-auto bg-teal-950 p-7 text-white mb-10">
@@ -128,10 +146,12 @@ const Projects = () => {
           corrections made to your synopsis or report, we will also make those
           changes.
         </p>
-        <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
-          <i class="bi bi-chat-heart-fill"></i>
-          Contact us
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="w-[100%] bg-green-600 hover:bg-green-700 text-white mt-3">
+            <i class="bi bi-chat-heart-fill"></i>
+            Contact us
+          </button>
+        </Link>
       </div>
     </div>
   );

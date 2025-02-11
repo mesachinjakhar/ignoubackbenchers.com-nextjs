@@ -22,6 +22,7 @@ const Blog = () => {
               IGNOU solved assignments for different courses.
             </p>
             <a
+              href="/blogs/The-Ultimate-Guide-to-IGNOU-Solved-Assignments-2024"
               aria-label="Read more about how we made the assignments"
               className=" flex justify-end hover:cursor-pointer"
             >
@@ -46,6 +47,7 @@ const Blog = () => {
               before exams.
             </p>
             <a
+              href="blogs/Ignou-Previous-Year-Question-Papers"
               aria-label="Read more about how we made the assignments"
               className=" flex justify-end hover:cursor-pointer"
             >
@@ -70,6 +72,7 @@ const Blog = () => {
               timely submission.
             </p>
             <a
+              href="blogs/Everything-You-Need-to-Know-About-IGNOU-Handwritten-Assignments"
               aria-label="Read more about how we made the assignments"
               className="flex justify-end hover:cursor-pointer"
             >
