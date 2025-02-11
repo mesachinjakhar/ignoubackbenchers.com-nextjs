@@ -1,3 +1,4 @@
+const Link = require("next/link");
 const Blog = () => {
   return (
     <section className="bg-black px-[50px] py-[35px] mb-[60px] xs:px-[25px]">
@@ -67,12 +68,14 @@ const Blog = () => {
             </a>
           </div>
         </div>
-        <a
-          className="text-white hover:text-green-500 mb-8 underline hover:cursor-pointer"
-          aria-label="See all blogs about IGNOU assignments and projects"
-        >
-          See All Blogs Here
-        </a>
+        <Link href="/blogs">
+          <p
+            className="text-white hover:text-green-500 mb-8 underline hover:cursor-pointer"
+            aria-label="See all blogs about IGNOU assignments and projects"
+          >
+            See All Blogs Here
+          </p>
+        </Link>
       </div>
     </section>
   );

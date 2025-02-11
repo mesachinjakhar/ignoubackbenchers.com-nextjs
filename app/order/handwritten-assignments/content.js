@@ -1,4 +1,5 @@
 import React from "react";
+const Link = require("next/link");
 
 const HandwrittenAssignments = () => {
   return (
@@ -26,9 +27,11 @@ const HandwrittenAssignments = () => {
         To get your IGNOU Assignments fill the above order form or Call us on –
         <span className="text-blue-600"> +919053442043 </span> or WhatsApp Us.
       </p>
-      <button className=" bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
-        💬 WhatsApp Us
-      </button>
+      <Link href="https://wa.me/919053442043">
+        <button className=" bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
+          💬 WhatsApp Us
+        </button>
+      </Link>
 
       <h3 className="text-2xl font-semibold text-black mb-3 mt-5">
         🧠 IS THE TERM-END EXAMINATION AND IGNOU HANDWRITTEN ASSIGNMENTS
@@ -96,9 +99,11 @@ const HandwrittenAssignments = () => {
         To get your IGNOU Handwritten assignment, Call us on –
         <span className="text-blue-600"> +919053442043 </span> or WhatsApp Us.
       </p>
-      <button className=" bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
-        💬 WhatsApp Us
-      </button>
+      <Link href="https://wa.me/919053442043">
+        <button className=" bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
+          💬 WhatsApp Us
+        </button>
+      </Link>
     </div>
   );
 };

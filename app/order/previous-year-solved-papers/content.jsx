@@ -1,4 +1,5 @@
 import React from "react";
+const Link = require("next/link");
 
 const SolvedQuestionPapers = () => {
   return (
@@ -15,18 +16,16 @@ const SolvedQuestionPapers = () => {
       </p>
 
       <div className="flex flex-col md:flex-row gap-4 mt-6 justify-center">
-        <a
-          href="#"
-          className="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700"
-        >
-          WhatsApp Us
-        </a>
-        <a
-          href="#"
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700"
-        >
-          Check Availability
-        </a>
+        <Link href="https://wa.me/919053442043">
+          <p className="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700">
+            WhatsApp Us
+          </p>
+        </Link>
+        <Link href="https://wa.me/919053442043">
+          <p className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700">
+            Check Availability
+          </p>
+        </Link>
       </div>
 
       <div className="mt-8">

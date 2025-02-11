@@ -1,4 +1,5 @@
 "use client";
+const Link = require("next/link");
 
 const IgnouSolvedAssignments = () => {
   return (
@@ -35,9 +36,11 @@ const IgnouSolvedAssignments = () => {
             subject-matter experts.
           </li>
         </ul>
-        <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
-          💬 WhatsApp Us to Get the Latest Assignments
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-green-600">
+            💬 WhatsApp Us to Get the Latest Assignments
+          </button>
+        </Link>
       </div>
 
       <h2 className="text-2xl font-semibold text-black mb-4">
@@ -123,9 +126,11 @@ const IgnouSolvedAssignments = () => {
           Get the best <strong>IGNOU Solved Assignments</strong> tailored to
           <strong> your course requirements</strong>.
         </p>
-        <button className="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-red-600">
-          🔹 Limited Offer: Just ₹19 per Subject! Order Now
-        </button>
+        <Link href="https://wa.me/919053442043">
+          <button className="mt-4 bg-red-500 text-white py-2 px-4 rounded-lg shadow-md hover:bg-red-600">
+            🔹 Limited Offer: Just ₹19 per Subject! Order Now
+          </button>
+        </Link>
       </div>
     </section>
   );
