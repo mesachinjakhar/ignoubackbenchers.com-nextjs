@@ -18,12 +18,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link href="/order/previous-year-solved-papers">
-                  IGNOU Handwritten Assignments
+                  IGNOU Last Year Question Papers
                 </Link>
               </li>
               <li>
                 <Link href="/order/handwritten-assignments">
-                  IGNOU Last Year Question Papers
+                  IGNOU Handwritten Assignments
                 </Link>
               </li>
               <li>
