@@ -18,11 +18,12 @@ const SolvedQuestionPapers = () => {
       <div className="flex flex-col md:flex-row gap-4 mt-6 justify-center">
         <Link href="https://wa.me/919053442043">
           <p className="bg-green-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-green-700">
-            WhatsApp Us
+            💬 WhatsApp Us
           </p>
         </Link>
         <Link href="https://wa.me/919053442043">
           <p className="bg-blue-600 text-white px-6 py-2 rounded-lg shadow-md hover:bg-blue-700">
+            <i class="bi bi-question-circle-fill"></i>
             Check Availability
           </p>
         </Link>

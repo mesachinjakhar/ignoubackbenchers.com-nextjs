@@ -11,9 +11,10 @@ async function apiRequest(url, method = "GET", body = null) {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    if (response.ok) {
+    if (data.status) {
       return { status: true, data };
-    } else {
+    }
+    if (data.status == false) {
       return { status: false, error: data.message || "Unknown error" };
     }
   } catch (err) {
