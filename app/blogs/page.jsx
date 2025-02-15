@@ -3,7 +3,7 @@ import React from "react";
 
 const Blogs = () => {
   return (
-    <div className="">
+    <div className="px-5">
       <h1 className="text-center mt-8 underline xs:text-xl">Read our blogs</h1>
       <div className="flex gap-5 mb-20 xs:block">
         <img
@@ -48,7 +48,7 @@ const Blogs = () => {
             solved question papers with answers to boost your confidence before
             exams.
           </p>
-          <Link href="/blogs/The-Ultimate-Guide-to-IGNOU-Solved-Assignments-2024">
+          <Link href="/blogs/Ignou-Previous-Year-Question-Papers">
             <p className="absolute underline right-10 cursor-pointer hover:text-green-700">
               Read here
             </p>
@@ -73,7 +73,7 @@ const Blogs = () => {
             professionally written IGNOU handwritten assignments for timely
             submission.
           </p>
-          <Link href="/blogs/The-Ultimate-Guide-to-IGNOU-Solved-Assignments-2024">
+          <Link href="/blogs/Everything-You-Need-to-Know-About-IGNOU-Handwritten-Assignments">
             <p className="absolute underline right-10 cursor-pointer hover:text-green-700">
               Read here
             </p>
