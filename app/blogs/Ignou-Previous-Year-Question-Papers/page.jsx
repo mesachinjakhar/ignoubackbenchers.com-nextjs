@@ -13,40 +13,38 @@ const Blog = () => (
     <article>
       <h1>IGNOU Previous Year Question Papers - Download Solved PDFs</h1>
       <p>
-        Struggling with **IGNOU exam preparation**? Get **officially solved
-        IGNOU previous year question papers** with detailed answers, helping you
+        Struggling with IGNOU exam preparation? Get officially solved IGNOU
+        previous year question papers with detailed answers, helping you
         understand key concepts and improve scores.
       </p>
 
       <br />
       <h2>📚 Benefits of IGNOU Solved Question Papers</h2>
       <ul>
+        <li>📝 Perfect for Exam Preparation – Understand important topics.</li>
         <li>
-          📝 **Perfect for Exam Preparation** – Understand important topics.
+          📖 Solutions Based on IGNOU Guidelines – Follow the correct format.
         </li>
         <li>
-          📖 **Solutions Based on IGNOU Guidelines** – Follow the correct
-          format.
-        </li>
-        <li>
-          🔍 **Covers All Major IGNOU Courses** – BEGAE 182, BCA, MCA, MBA, and
+          🔍 Covers All Major IGNOU Courses – BEGAE 182, BCA, MCA, MBA, and
           more.
         </li>
-        <li>📂 **Available in Downloadable PDF Format** – Instant access.</li>
+        <li>📂 Available in Downloadable PDF Format – Instant access.</li>
       </ul>
 
       <br />
       <h2>🛒 How to Get IGNOU Solved Papers?</h2>
       <ol>
-        <li>📞 Call **+91 90534 42043** to place an order.</li>
-        <li>💬 WhatsApp us for **instant PDF delivery**.</li>
-        <li>📥 Receive **error-free, officially accepted solutions**.</li>
+        <li>📞 Call +91 90534 42043 to place an order.</li>
+        <li>💬 WhatsApp us for instant PDF delivery.</li>
+        <li>📥 Receive error-free, officially accepted solutions.</li>
       </ol>
       <br />
+
       <p>
         <strong>
-          Boost your IGNOU exam scores with our **expertly solved previous year
-          question papers**! Order today.
+          Boost your IGNOU exam scores with our expertly solved previous year
+          question papers! Order today.
         </strong>
       </p>
     </article>
