@@ -51,7 +51,7 @@ export const Header = () => {
           <div className="w-16 md:w-20 lg:w-16">
             <Image
               src="/images/ignou_backbenchers_logo.webp"
-              alt="IGNOU Backbenchers Logo"
+              alt="IGNOU Backbenchers"
               width={0}
               height={0}
               sizes="100vw"
