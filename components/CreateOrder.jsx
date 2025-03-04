@@ -1,5 +1,6 @@
 "use client";
 
+import Script from "next/script";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { validateForm } from "@/helpers/validation";
@@ -48,6 +49,20 @@ const CreateOrder = () => {
       });
     }
   }, [step, isFormSubmitted]);
+
+  const handleConversion = () => {
+    console.log("handle conversion called");
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "conversion", {
+        send_to: "AW-16878384589/dxaSCNCe2aUaEM3rnvA-",
+        value: 1.0,
+        currency: "INR",
+        event_callback: () => {
+          console.log("Conversion event sent!");
+        },
+      });
+    }
+  };
 
   // Try to lgging user using otp
   const loginDuringOrder = async (email, otp) => {
@@ -106,6 +121,7 @@ const CreateOrder = () => {
   const handlePlaceOrder = (e) => {
     setError("");
     e.preventDefault();
+    handleConversion();
 
     setResponse("");
 
@@ -175,6 +191,25 @@ const CreateOrder = () => {
 
   return (
     <div className="order p-0 px-[200px] mb-[80px] mt-6 xs:px-[30px]">
+      {/* Add conversion tracking script */}
+      <Script id="google-conversion" strategy="afterInteractive">
+        {`
+          function gtag_report_conversion(url) {
+            var callback = function () {
+              if (typeof(url) != 'undefined') {
+                window.location = url;
+              }
+            };
+            gtag('event', 'conversion', {
+                'send_to': 'AW-16878384589/dxaSCNCe2aUaEM3rnvA-',
+                'value': 1.0,
+                'currency': 'INR',
+                'event_callback': callback
+            });
+            return false;
+          }
+        `}
+      </Script>
       <h2 className="text-4xl text-green-600 text-center xs:text-2xl">
         From Rs.350/- Each
       </h2>
