@@ -3,6 +3,7 @@ import "./globals.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Header from "@/components/Header";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Script from "next/script";
 
 const raleway = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -57,6 +58,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Tag Manager Script */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16878384589"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16878384589');
+          `}
+        </Script>
+      </head>
       <body className={`${raleway.className}`}>
         <Header />
         {children}
