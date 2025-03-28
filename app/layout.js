@@ -12,47 +12,47 @@ const raleway = Plus_Jakarta_Sans({
 
 export const metadata = {
   title:
-    "IGNOU Solved Assignments & Previous Year Question Papers - Order Online",
+    "IGNOU Assignment Writing Services | Order Handwritten Assignments Online", // SEO title with primary keyword
   description:
-    "Get IGNOU solved assignments and previous year question papers with answers. Order IGNOU handwritten assignments, solved guess papers, and projects online for fast delivery.",
+    "Order top-quality handwritten assignments for IGNOU University from IgnouBackBenchers. Affordable, reliable, and tailored services with timely delivery. Simplify your assignment submission process today!", // SEO-optimized meta description
   keywords: [
-    "IGNOU solved assignments",
-    "IGNOU previous year question papers solved",
-    "IGNOU assignment 2024 PDF",
-    "IGNOU handwritten assignments",
-    "IGNOU BEGAE 182 question paper solved",
-    "IGNOU solved guess papers",
-    "IGNOU project reports",
+    "IGNOU assignment writing services", // Primary keyword
+    "handwritten assignments for IGNOU", // Secondary keyword
+    "IGNOU handwritten assignments online", // Supporting keyword
+    "IGNOU assignment help",
+    "custom handwritten assignments for IGNOU",
   ],
   openGraph: {
     title:
-      "IGNOU Solved Assignments & Previous Year Question Papers - Order Online",
+      "IGNOU Assignment Writing Services | Order Handwritten Assignments Online", // Open Graph title
     description:
-      "Get high-quality IGNOU solved assignments and previous year question papers with answers. Order now for fast delivery!",
-    url: "https://www.ignoubackbenchers.com",
+      "Get affordable and high-quality handwritten assignments for IGNOU University students with IgnouBackBenchers. Reliable and easy services just for you!", // Open Graph description
+    url: "https://www.ignoubackbenchers.com", // Your website URL
     type: "website",
     images: [
       {
-        url: "https://www.ignoubackbenchers.com/images/solved-assignments.jpg",
+        url: "https://www.ignoubackbenchers.com/images/handwritten-assignments.jpg", // Replace with your actual image URL
         width: 1200,
         height: 630,
-        alt: "IGNOU Solved Assignments and Previous Year Question Papers",
+        alt: "Handwritten Assignments for IGNOU University", // Image alt text
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary_large_image", // Ensures large Twitter card rendering
     title:
-      "IGNOU Solved Assignments & Previous Year Question Papers - Order Online",
+      "IGNOU Assignment Writing Services | Order Handwritten Assignments Online", // Twitter title
     description:
-      "Need IGNOU solved assignments? Get previous year question papers and handwritten assignments with fast delivery.",
-    images: ["https://www.ignoubackbenchers.com/images/solved-assignments.jpg"],
+      "Need help with IGNOU assignments? IgnouBackBenchers offers top-notch handwritten assignments with fast delivery and affordable pricing!", // Twitter description
+    images: [
+      "https://www.ignoubackbenchers.com/images/handwritten-assignments.jpg", // Replace with your image URL
+    ],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: true, // Allow search engines to index this page
+    follow: true, // Allow search engines to follow links on this page
   },
-  canonical: "https://www.ignoubackbenchers.com",
+  canonical: "https://www.ignoubackbenchers.com", // Canonical URL
 };
 
 export default function RootLayout({ children }) {
